@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sistema de Inventario v 2.0</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- personalizado -->
+    <script src="js/inventario/inventario.js" charset="utf-8"></script>
+    <script src="js/vista/vista.js" charset="utf-8"></script>
+    <script src="js/controlador/main.js" charset="utf-8"></script>
+
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h4>Sistema de Inventario v 2.0</h4>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 alert alert-primary">
+          <div class="form-group">
+            <label for="txtId">Identificación</label>
+            <input type="text"  class="form-control" id="txtId" name="" value="" placeholder="Digite la identificación">
+          </div>
+          <div class="form-group">
+            <label for="txtNombre">Nombre</label>
+            <input type="text"  class="form-control" id="txtNombre" name="" value="" placeholder="Digite el nombre del artículo">
+          </div>
+          <hr>
+          <input type="button" id="btnAgregar" name="" value="Agregar" class="btn btn-success">
+          <button type="button" class="btn btn-primary" id="btnMostrar">Mostrar</button>
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalBuscar">
+            Buscar
+          </button>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+
+      <div class="row">
+        <div id="contMensaje" class="col-sm-12 alert alert-success"></div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalRegistros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Registros</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="visor">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Buscar por id</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                <form class="form-inline">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="txtIdB" placeholder="Escriba la id">
+                  </div>
+                  <button type="button" class="btn btn-warning mb-2" id="btnBuscarId">Buscar</button>
+                </form>
+              </div>
+              <div class="row">
+                <div class="col-sm-12" id="visorRegistro">
+
+                </div>
+              </div>
+
+          </div>
+          <div class="modal-footer">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
