@@ -3,13 +3,14 @@ function Inventario() {
   console.log("objeto inventario creado");
 }
 
-Inventario.prototype.guardar = function (id, nombre) {
+Inventario.prototype.guardar = function (id, nombre, nota) {
   var guardado = false;
 
       try {
         var articulo = {
           id : id,
-          nombre : nombre
+          nombre : nombre,
+          nota : nota
         }
         this.articulos.push(articulo);
         guardado = true;
@@ -42,9 +43,9 @@ Inventario.prototype.obtInventario = function () {
 
 
 
-Inventario.prototype.validarVacios = function (id, nombre) {
+Inventario.prototype.validarVacios = function (id, nombre, nota) {
       var vacio = true;
-        if (id != "" && nombre != "") {
+        if (id != "" && nombre != "" && nota != "") {
           vacio=false;
         }
         return vacio;

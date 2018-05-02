@@ -16,18 +16,20 @@ $(document).ready(function () {
 
 function guardar() {
   var id = $("#txtId").val(),
-  nombre = $("#txtNombre").val();
-    if (inv.validarVacios(id, nombre) == false) {
-      if (inv.guardar(id, nombre)) {
+  nombre = $("#txtNombre").val(),
+  nota = $("#txtNota").val();
+    if (inv.validarVacios(id, nombre,nota) == false) {
+      if (inv.guardar(id, nombre, nota)) {
           v.mostrarGuardadoOk($("#contMensaje"));
           $("#txtId").val("");
           $("#txtNombre").val("");
+          $("#txtNota").val("");
           setTimeout(function () {
               v.ocultarContenedor("#contMensaje");
           }, 1000);
       }
     } else {
-      console.log("Debe completar todos los campos"); 
+      console.log("Debe completar todos los campos");
 	  window.alert ("Debe completar todos los campos");
     }
 }

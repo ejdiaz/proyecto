@@ -16,12 +16,13 @@ Vista.prototype.establecerInvisible = function (cont) {
 };
 
 Vista.prototype.mostrarRegistro = function (obj, cont) {
-  var tabla = $("<table><th>Id</th><th>Nombre</th></table>");
+  var tabla = $("<table><th>Id</th><th>Nombre</th><th>Nota</th></table>");
   $(tabla).addClass("table table-striped");
   $(tabla).attr("id","tablaRegistros");
   fila = $("<tr>"+
     "<td>" + obj.id + "</td>" +
-    "<td>" + obj.nombre + "</td>"
+    "<td>" + obj.nombre + "</td>"+
+    "<td>" + obj.nota + "</td>"
     +"</tr>" );
     $(tabla).append(fila);
       $(cont).append(tabla);
@@ -30,10 +31,7 @@ Vista.prototype.mostrarRegistro = function (obj, cont) {
 Vista.prototype.mostrarArray = function (array, cont) {
   // Creación de objetos HTML
   var  limite = array.length, fila ="",
-  tabla = $("<table> <tr>" +
-  "<th>ID</th>" +
-  "<th>Nombre</th>" +
-  "</tr></table>");
+  tabla = $("<table> <tr>"+"<th>ID</th>" +"<th>Nombre</th>" +"<th>Nota</th>" +"</tr></table>");
 
   //Definición de las propiedades del objeto
   $(tabla).addClass("table table-striped");
@@ -43,7 +41,8 @@ for (var i = 0; i < limite; i++) {
   //Creación de las filas de forma dinánmica
     fila = $("<tr>"+
       "<td>" + array[i].id + "</td>" +
-      "<td>" + array[i].nombre + "</td>"
+      "<td>" + array[i].nombre + "</td>"+
+      "<td>" + array[i].nota + "</td>"
       +"</tr>" );
 
      // Una vez creada la fila se agrega en la tabla
