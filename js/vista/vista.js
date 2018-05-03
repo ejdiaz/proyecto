@@ -32,7 +32,7 @@ Vista.prototype.mostrarArray = function (array, cont) {
   // Creación de objetos HTML
   this.limpiarCont(cont)
   var  limite = array.length, fila ="",
-  tabla = $("<table> <tr>"+"<th>ID</th>" +"<th>Nombre</th>" +"<th>Nota</th>" +"</tr></table>");
+  tabla = $("<table> <tr>"+"<th>ID</th>" +"<th>Nombre</th>" +"<th>Nota</th>"+"<th>Eliminar</th>" +"</tr></table>");
 
 
   //Definición de las propiedades del objeto
@@ -43,7 +43,8 @@ Vista.prototype.mostrarArray = function (array, cont) {
       fila = $("<tr>"+
         "<td>" + array.id + "</td>" +
         "<td>" + array.name + "</td>"+
-        "<td>" + array.score + "</td>"
+        "<td>" + array.score + "</td>"+
+        "<td>" + '<button type="button" class="btn btn-outline-danger">Eliminar</button>' + "</td>"
         +"</tr>" );
 
        // Una vez creada la fila se agrega en la tabla
@@ -54,7 +55,8 @@ for (var i = 0; i < limite; i++) {
     fila = $("<tr>"+
       "<td>" + array[i].id + "</td>" +
       "<td>" + array[i].name + "</td>"+
-      "<td>" + array[i].score + "</td>"
+      "<td>" + array[i].score + "</td>"+
+      "<td>" + '<button type="button" class="btn btn-outline-danger">Eliminar</button>' + "</td>"
       +"</tr>" );
 
      // Una vez creada la fila se agrega en la tabla

@@ -9,6 +9,13 @@ $(document).ready(function () {
   $("#btnPromedio").click(prome);
   $("#btnMayor").click(mostrarMayor);
   $("#btnMenor").click(mostrarMenor);
+  $(".btn-outline-danger").click(btn);
+
+
+
+  function btn() {
+    console.log("hola")
+  }
 
   function prome() {
     usuario.promedio();
