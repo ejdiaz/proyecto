@@ -10,6 +10,7 @@ function User() {
 User.prototype.setUsr = function (id, name, score) {
 	//establece  usuario y lo almacena en localstorage si no existe.
   var max = localStorage.length, saved=false, done=false;
+  console.log(max);
   //objeto usuario:
   this.usr = {
     id : id,
@@ -31,7 +32,7 @@ User.prototype.setUsr = function (id, name, score) {
 			// realiza una búsqueda para determinar si el registro ya existe
             var k = localStorage.key(i);
             if (k==this.usr.id) {
-			// Si el registro ya existe retorna "salvado" com verdadero
+			// Si el registro ya existe retorna "salvado" como verdadero
           saved=true;
         }
       };
@@ -111,4 +112,59 @@ User.prototype.validarVacios = function (id, name,score) {
           vacio=false;
         }
         return vacio;
+};
+User.prototype.promedio = function () {
+  	  //var user = $.parseJSON(localStorage.getItem(id));
+  	  var tamano = localStorage.length
+      var suma=0,temporal=[];
+      temporal=this.getUsers();
+      for (var i = 0; i < tamano; i++) {
+
+        suma=suma+parseInt(temporal[i].score);
+      }
+      suma=suma/tamano
+      window.alert ("El promedio de las notas es: "+suma);
+};
+
+User.prototype.mayor = function () {
+  	  //var user = $.parseJSON(localStorage.getItem(id));
+  	  var tamano = localStorage.length
+      var temporal=[],id,mayor;
+      temporal=this.getUsers();
+      for (var i = 0; i < tamano; i++) {
+
+        if (i==0) {
+          mayor = parseInt(temporal[i].score);
+          id=temporal[i].id;
+        }
+        else {
+          if (mayor < parseInt(temporal[i].score)) {
+            mayor = parseInt(temporal[i].score)
+            id=temporal[i].id;
+          }
+        }
+      }
+      var user = $.parseJSON(localStorage.getItem(id));
+  	  return user;
+};
+User.prototype.menor = function () {
+  	  //var user = $.parseJSON(localStorage.getItem(id));
+  	  var tamano = localStorage.length
+      var temporal=[],id,mayor;
+      temporal=this.getUsers();
+      for (var i = 0; i < tamano; i++) {
+
+        if (i==0) {
+          mayor = parseInt(temporal[i].score);
+          id=temporal[i].id;
+        }
+        else {
+          if (mayor > parseInt(temporal[i].score)) {
+            mayor = parseInt(temporal[i].score)
+            id=temporal[i].id;
+          }
+        }
+      }
+      var user = $.parseJSON(localStorage.getItem(id));
+  	  return user;
 };

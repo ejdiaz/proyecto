@@ -6,6 +6,13 @@ $(document).ready(function () {
   $("#btnAgregar").click(guardar);
   $("#btnMostrar").click(mostrar);
   $("#btnBuscarId").click(buscarId);
+  $("#btnPromedio").click(prome);
+  $("#btnMayor").click(mostrarMayor);
+  $("#btnMenor").click(mostrarMenor);
+
+  function prome() {
+    usuario.promedio();
+  }
 
 
   //Se ocultan los alert
@@ -29,12 +36,22 @@ function guardar() {
       }
     } else {
       console.log("Debe completar todos los campos");
-	  window.alert ("Debe completar todos los campos");
+	    window.alert ("Debe completar todos los campos");
     }
 }
 
 function mostrar() {
   v.mostrarArray(usuario.getUsers(), $("#visor"))
+  $("#modalRegistros").modal();
+  v.limpiarContModal($("#modalRegistros"), $("#visor"));
+}
+function mostrarMayor() {
+  v.mostrarArray(usuario.mayor(), $("#visor"))
+  $("#modalRegistros").modal();
+  v.limpiarContModal($("#modalRegistros"), $("#visor"));
+}
+function mostrarMenor() {
+  v.mostrarArray(usuario.menor(), $("#visor"))
   $("#modalRegistros").modal();
   v.limpiarContModal($("#modalRegistros"), $("#visor"));
 }

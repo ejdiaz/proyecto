@@ -30,13 +30,25 @@ Vista.prototype.mostrarRegistro = function (obj, cont) {
 
 Vista.prototype.mostrarArray = function (array, cont) {
   // Creación de objetos HTML
+  this.limpiarCont(cont)
   var  limite = array.length, fila ="",
   tabla = $("<table> <tr>"+"<th>ID</th>" +"<th>Nombre</th>" +"<th>Nota</th>" +"</tr></table>");
+
 
   //Definición de las propiedades del objeto
   $(tabla).addClass("table table-striped");
   $(tabla).attr("id","tablaRegistros");
+  if (limite==undefined) {
+    //Creación de las filas de forma dinánmica
+      fila = $("<tr>"+
+        "<td>" + array.id + "</td>" +
+        "<td>" + array.name + "</td>"+
+        "<td>" + array.score + "</td>"
+        +"</tr>" );
 
+       // Una vez creada la fila se agrega en la tabla
+       $(tabla).append(fila);
+  }
 for (var i = 0; i < limite; i++) {
   //Creación de las filas de forma dinánmica
     fila = $("<tr>"+
