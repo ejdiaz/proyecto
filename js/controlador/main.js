@@ -1,5 +1,4 @@
-var inv = new Inventario,
-v = new Vista ();
+var inv = new Inventario,v = new Vista (), usuario = new User();
 
 
 $(document).ready(function () {
@@ -18,8 +17,8 @@ function guardar() {
   var id = $("#txtId").val(),
   nombre = $("#txtNombre").val(),
   nota = $("#txtNota").val();
-    if (inv.validarVacios(id, nombre,nota) == false) {
-      if (inv.guardar(id, nombre, nota)) {
+    if (usuario.validarVacios(id, nombre,nota) == false) {
+      if (usuario.setUsr(id, nombre, nota)) {
           v.mostrarGuardadoOk($("#contMensaje"));
           $("#txtId").val("");
           $("#txtNombre").val("");
@@ -35,7 +34,7 @@ function guardar() {
 }
 
 function mostrar() {
-  v.mostrarArray(inv.obtInventario(), $("#visor"))
+  v.mostrarArray(usuario.getUsers(), $("#visor"))
   $("#modalRegistros").modal();
   v.limpiarContModal($("#modalRegistros"), $("#visor"));
 }
@@ -43,7 +42,7 @@ function mostrar() {
 
 function buscarId() {
   v.limpiarCont($("#visorRegistro"));
-  var obj = inv.obtenerPorId($("#txtIdB").val());
+  var obj = usuario.getUserById($("#txtIdB").val());
   if (obj != undefined) {
       v.mostrarRegistro (obj, $("#visorRegistro"));
   }else {

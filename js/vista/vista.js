@@ -21,8 +21,8 @@ Vista.prototype.mostrarRegistro = function (obj, cont) {
   $(tabla).attr("id","tablaRegistros");
   fila = $("<tr>"+
     "<td>" + obj.id + "</td>" +
-    "<td>" + obj.nombre + "</td>"+
-    "<td>" + obj.nota + "</td>"
+    "<td>" + obj.name + "</td>"+
+    "<td>" + obj.score + "</td>"
     +"</tr>" );
     $(tabla).append(fila);
       $(cont).append(tabla);
@@ -41,8 +41,8 @@ for (var i = 0; i < limite; i++) {
   //Creación de las filas de forma dinánmica
     fila = $("<tr>"+
       "<td>" + array[i].id + "</td>" +
-      "<td>" + array[i].nombre + "</td>"+
-      "<td>" + array[i].nota + "</td>"
+      "<td>" + array[i].name + "</td>"+
+      "<td>" + array[i].score + "</td>"
       +"</tr>" );
 
      // Una vez creada la fila se agrega en la tabla
