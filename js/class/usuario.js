@@ -1,8 +1,7 @@
 
 "use strict";
 
-function User() {
-	//Constructor de la clase
+function User() {	//Constructor de la clase
   this.usr={};
   console.log("objeto usuario creado");
 }
@@ -58,10 +57,12 @@ User.prototype.getUsers = function () {
       user = $.parseJSON(localStorage.getItem(k))
       users.push(user);
   };
+  //Retorna todos los usuarios almacenados del local storage
   return users;
 };
 
 User.prototype.getUserById = function (id) {
+    //retorna los datos si el id solicitado es el mismo
 	  var user = $.parseJSON(localStorage.getItem(id));
 	  return user;
 }
@@ -107,6 +108,7 @@ User.prototype.isEmpty = function () {
 };
 
 User.prototype.validarVacios = function (id, name,score) {
+  //valida si los imput tipo text estan vacios
       var vacio = true;
         if (id != "" && name != "" && score != "") {
           vacio=false;
@@ -114,20 +116,21 @@ User.prototype.validarVacios = function (id, name,score) {
         return vacio;
 };
 User.prototype.promedio = function () {
-  	  //var user = $.parseJSON(localStorage.getItem(id));
+
   	  var tamano = localStorage.length
       var suma=0,temporal=[];
       temporal=this.getUsers();
+      //suma todas las notas del local storage
       for (var i = 0; i < tamano; i++) {
 
         suma=suma+parseInt(temporal[i].score);
       }
+      //calcula el promedio de las notas del local storage
       suma=suma/tamano
       window.alert ("El promedio de las notas es: "+suma);
 };
 
-User.prototype.mayor = function () {
-  	  //var user = $.parseJSON(localStorage.getItem(id));
+User.prototype.mayor = function () {//devuelve el item con la nota mayor
   	  var tamano = localStorage.length
       var temporal=[],id,mayor;
       temporal=this.getUsers();
@@ -138,7 +141,7 @@ User.prototype.mayor = function () {
           id=temporal[i].id;
         }
         else {
-          if (mayor < parseInt(temporal[i].score)) {
+          if (mayor < parseInt(temporal[i].score)) {//valida cual nota es mayor
             mayor = parseInt(temporal[i].score)
             id=temporal[i].id;
           }
@@ -147,8 +150,7 @@ User.prototype.mayor = function () {
       var user = $.parseJSON(localStorage.getItem(id));
   	  return user;
 };
-User.prototype.menor = function () {
-  	  //var user = $.parseJSON(localStorage.getItem(id));
+User.prototype.menor = function () {//devuelve el item con la nota menor
   	  var tamano = localStorage.length
       var temporal=[],id,mayor;
       temporal=this.getUsers();
@@ -159,7 +161,7 @@ User.prototype.menor = function () {
           id=temporal[i].id;
         }
         else {
-          if (mayor > parseInt(temporal[i].score)) {
+          if (mayor > parseInt(temporal[i].score)) {//valida cual nota es mayor
             mayor = parseInt(temporal[i].score)
             id=temporal[i].id;
           }

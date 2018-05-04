@@ -11,28 +11,23 @@ $(document).ready(function () {
   $("#btnMenor").click(mostrarMenor);
   $(".btn-outline-danger").click(btn);
 
-
-
-
-
-
   //Se ocultan los alert
     v.establecerInvisible($("#contMensaje"));
 })
-function btn() {
+function btn() {//prueba con btn danger-----NO
   console.log("hola")
 }
 
-function prome() {
+function prome() {//llama el la funcion promedio
   usuario.promedio();
 }
 
 function guardar() {
-  var id = $("#txtId").val(),
-  nombre = $("#txtNombre").val(),
-  nota = $("#txtNota").val();
-    if (usuario.validarVacios(id, nombre,nota) == false) {
-      if (usuario.setUsr(id, nombre, nota)) {
+  var id = $("#txtId").val(),//valores de las cajas de texto
+  nombre = $("#txtNombre").val(),//--
+  nota = $("#txtNota").val();//--
+    if (usuario.validarVacios(id, nombre,nota) == false) {//valida campos vacios
+      if (usuario.setUsr(id, nombre, nota)) {//envia los datos para guardar en el localStorage
           v.mostrarGuardadoOk($("#contMensaje"));
           $("#txtId").val("");
           $("#txtNombre").val("");
@@ -43,28 +38,28 @@ function guardar() {
       }
     } else {
       console.log("Debe completar todos los campos");
-	    window.alert ("Debe completar todos los campos");
+	    window.alert ("Debe completar todos los campos");//ventana de alerta - faltan datos
     }
 }
 
-function mostrar() {
+function mostrar() {//muestra todos los datos en el modal
   v.mostrarArray(usuario.getUsers(), $("#visor"))
   $("#modalRegistros").modal();
   v.limpiarContModal($("#modalRegistros"), $("#visor"));
 }
-function mostrarMayor() {
+function mostrarMayor() {//muestra la nota mayor en el modal
   v.mostrarArray(usuario.mayor(), $("#visor"))
   $("#modalRegistros").modal();
   v.limpiarContModal($("#modalRegistros"), $("#visor"));
 }
-function mostrarMenor() {
+function mostrarMenor() {// muestra la nota menor en el modal
   v.mostrarArray(usuario.menor(), $("#visor"))
   $("#modalRegistros").modal();
   v.limpiarContModal($("#modalRegistros"), $("#visor"));
 }
 
 
-function buscarId() {
+function buscarId() {//busca por id el campo especifico en el local storage
   v.limpiarCont($("#visorRegistro"));
   var obj = usuario.getUserById($("#txtIdB").val());
   if (obj != undefined) {
