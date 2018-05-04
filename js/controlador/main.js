@@ -1,4 +1,4 @@
-var inv = new Inventario,v = new Vista (), usuario = new User();
+var v = new Vista (), usuario = new User();
 
 
 $(document).ready(function () {
@@ -13,19 +13,19 @@ $(document).ready(function () {
 
 
 
-  function btn() {
-    console.log("hola")
-  }
 
-  function prome() {
-    usuario.promedio();
-  }
 
 
   //Se ocultan los alert
     v.establecerInvisible($("#contMensaje"));
 })
+function btn() {
+  console.log("hola")
+}
 
+function prome() {
+  usuario.promedio();
+}
 
 function guardar() {
   var id = $("#txtId").val(),
