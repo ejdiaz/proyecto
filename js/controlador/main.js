@@ -9,7 +9,9 @@ $(document).ready(function () {
   $("#btnPromedio").click(prome);
   $("#btnMayor").click(mostrarMayor);
   $("#btnMenor").click(mostrarMenor);
-  $(".btn-outline-danger").click(btn);
+  $("#btnEliminar").click(eliminarId);
+
+  //$(".btn-outline-danger").click(btn);
 
   //Se ocultan los alert
     v.establecerInvisible($("#contMensaje"));
@@ -66,8 +68,15 @@ function buscarId() {//busca por id el campo especifico en el local storage
       v.mostrarRegistro (obj, $("#visorRegistro"));
   }else {
   console.log("Registro no encontrado");
-
   }
-
-
+}
+function eliminarId() {//busca por id el campo especifico en el local storage
+  var obj = usuario.getUserById($("#txtIdB").val());
+  console.log(obj);
+  if (obj != undefined) {
+      var x = usuario.delUser($("#txtIdB").val());
+      window.alert ("Se elimino el campo con el id: "+$("#txtIdB").val());
+  }else {
+  window.alert ("No se encontro el registro con el id: "+$("#txtIdB").val());
+  }
 }
