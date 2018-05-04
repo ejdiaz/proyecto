@@ -70,13 +70,13 @@ function buscarId() {//busca por id el campo especifico en el local storage
   console.log("Registro no encontrado");
   }
 }
-function eliminarId() {//busca por id el campo especifico en el local storage
+function eliminarId() {//busca por id el campo especifico y lo elimina en el local storage
   var obj = usuario.getUserById($("#txtIdB").val());
   console.log(obj);
   if (obj != undefined) {
-      var x = usuario.delUser($("#txtIdB").val());
+      var x = usuario.delUser($("#txtIdB").val());//alert exitoso
       window.alert ("Se elimino el campo con el id: "+$("#txtIdB").val());
-  }else {
+  }else {//alert fallido, no se encontro el dato
   window.alert ("No se encontro el registro con el id: "+$("#txtIdB").val());
   }
 }
